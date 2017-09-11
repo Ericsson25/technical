@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	
+	<!-- You can set the location of your repository folder. By default it is in the ${user}/.m2/repository folder. -->
+	<localRepository>D:\eclipse\repository</localRepository>
+	<servers>
+		<server>
+		  <id>central_group</id>
+		  <username>bkovacs</username>
+		  <password>manuscript</password>
+		</server>
+		<server>
+		  <id>releases</id>
+		  <username>bkovacs</username>
+		  <password>manuscript</password>
+		</server>
+		<server>
+		  <id>snapshots</id>
+		  <username>bkovacs</username>
+		  <password>manuscript</password>
+		</server>
+	</servers>
+	<!-- user your database url, username and password -->
+	<profiles>
+		<profile>
+			<id>database</id>
+			<properties>
+				<url>jdbc:mysql://35.187.161.99:3306/manuscript</url>
+				<username>manuscript</username>
+				<password>p*P4druxab</password>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>repository</id>
+			<repositories>
+				<repository>
+					<id>central_group</id>
+					<url>http://safranek.iit.uni-miskolc.hu:8081/nexus/content/groups/public/</url>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central_group</id>
+					<url>http://safranek.iit.uni-miskolc.hu:8081/nexus/content/groups/public/</url>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</snapshots>
+					<releases>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>	
+		</profile>	
+	</profiles>
+  
+	<activeProfiles>
+		<activeProfile>database</activeProfile>
+		<activeProfile>repository</activeProfile>
+	</activeProfiles>
+</settings>
